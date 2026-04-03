@@ -1,0 +1,17 @@
+[
+  {
+    "temperature": 10.0,
+    "motor_on_time": 11.618342427282832,
+    "drip_weight": 0.17427513640924244
+  },
+  {
+    "temperature": 20.0,
+    "motor_on_time": 10.0,
+    "drip_weight": 0.15
+  },
+  {
+    "temperature": 35.0,
+    "motor_on_time": 7.98516218759377,
+    "drip_weight": 0.11977743281390656
+  }
+]
