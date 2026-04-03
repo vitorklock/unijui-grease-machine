@@ -4,9 +4,6 @@ from .motor import SimulatedMotor
 from .physics import GreasePhysicsModel
 from .thermometer import SimulatedThermometer
 
-DRIP_DURATION = 10.0   # seconds over which drip accumulates after motor stops
-
-
 class SimulatedScale:
     """
     Simulated scale that computes weight from physics model.
@@ -37,6 +34,7 @@ class SimulatedScale:
         temperature = self._thermometer.read_temperature()
         flow_rate = self._physics.flow_rate(temperature)
         drip_weight = self._physics.drip_weight(temperature)
+        drip_duration = self._physics.drip_duration(temperature)
 
         running = self._motor.is_running()
 
@@ -53,7 +51,7 @@ class SimulatedScale:
         base_weight = self._weight_at_stop
         if self._stop_time is not None:
             elapsed_since_stop = time.monotonic() - self._stop_time
-            drip_fraction = min(1.0, elapsed_since_stop / DRIP_DURATION)
+            drip_fraction = min(1.0, elapsed_since_stop / drip_duration)
             return base_weight + drip_fraction * drip_weight
 
         return base_weight

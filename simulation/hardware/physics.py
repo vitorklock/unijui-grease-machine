@@ -28,11 +28,13 @@ class GreasePhysicsModel:
         reference_temp: float = 20.0,     # °C
         viscosity_coeff: float = 0.015,   # Arrhenius exponent per °C
         base_drip: float = 0.15,          # kg drip at reference temperature
+        base_drip_duration: float = 10.0, # seconds for drip to complete at reference temperature
     ) -> None:
         self.base_flow_rate = base_flow_rate
         self.reference_temp = reference_temp
         self.viscosity_coeff = viscosity_coeff
         self.base_drip = base_drip
+        self.base_drip_duration = base_drip_duration
 
     def flow_rate(self, temperature: float) -> float:
         """kg/s — how fast grease exits while the motor is running."""
@@ -43,3 +45,12 @@ class GreasePhysicsModel:
         """kg — grease that keeps dripping after the motor stops."""
         delta = temperature - self.reference_temp
         return self.base_drip * math.exp(-self.viscosity_coeff * delta)
+
+    def drip_duration(self, temperature: float) -> float:
+        """
+        Seconds for the full drip to complete after the motor stops.
+        More viscous grease (lower temperature) drips more slowly.
+        Uses the same exponential viscosity relationship.
+        """
+        delta = temperature - self.reference_temp
+        return self.base_drip_duration * math.exp(-self.viscosity_coeff * delta)
