@@ -1,17 +1,17 @@
 [
   {
     "temperature": 10.0,
-    "motor_on_time": 11.618342427282832,
-    "drip_weight": 0.17427513640924244
+    "motor_on_time": 580.9171213641416,
+    "drip_weight": 0.058091712136414154
   },
   {
     "temperature": 20.0,
-    "motor_on_time": 10.0,
-    "drip_weight": 0.15
+    "motor_on_time": 500.0,
+    "drip_weight": 0.05
   },
   {
     "temperature": 35.0,
-    "motor_on_time": 7.98516218759377,
-    "drip_weight": 0.11977743281390656
+    "motor_on_time": 399.2581093796885,
+    "drip_weight": 0.039925810937968854
   }
 ]

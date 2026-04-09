@@ -24,10 +24,10 @@ class GreasePhysicsModel:
 
     def __init__(
         self,
-        base_flow_rate: float = 0.5,      # kg/s at reference temperature
+        base_flow_rate: float = 0.01,     # kg/s at reference temperature
         reference_temp: float = 20.0,     # °C
         viscosity_coeff: float = 0.015,   # Arrhenius exponent per °C
-        base_drip: float = 0.15,          # kg drip at reference temperature
+        base_drip: float = 0.05,          # kg drip at reference temperature
         base_drip_duration: float = 10.0, # seconds for drip to complete at reference temperature
     ) -> None:
         self.base_flow_rate = base_flow_rate
